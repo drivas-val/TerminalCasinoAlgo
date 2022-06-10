@@ -10,10 +10,10 @@ import java.util.Set;
 public class Roulette {
 	
 	/**
-	 *@return A number from the standard American roulette.
-	 *@Note The list is a string since 00 must be included and can't be introduced as an int
+	 * @return A number from the standard American roulette.
+	 *@Note The list is a string since 00 must be included and can't be introduced as an int.
 	 */
-	public void spinWheel() {
+	public String[] spinWheel() {
 		// Key -> Number | Value -> Color
 		HashMap<String, String> americanR = new HashMap<String, String>();
 		
@@ -61,7 +61,7 @@ public class Roulette {
 			americanR.put(i.toString(), color);
 		}
 		
-		//
+		//Pick a random key (number) and retrieve its value (color)
 		Set<String> keySet = americanR.keySet();
 		List<String> keyList = new ArrayList<>(keySet);
 		
@@ -71,15 +71,14 @@ public class Roulette {
 		String randKey = keyList.get(randIndex);
 		String randVal = americanR.get(randKey);
 		
-		System.out.println("key: " + randKey + ", value: " + randVal);
+		String[] ball = {randKey, randVal};
 		
-		
-		
-	}
+		return ball;
+	} 
 }
 
 /*
  * getNumber algorithm can be done in less lines since two
  * of the for loops alternate r and b and another two
- * alternate b and r 
+ * alternate b and r.
  */
